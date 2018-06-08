@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WalkingTracker.Areas.Tracking.Models;
 
 namespace WalkingTracker.Data
 {
@@ -12,5 +13,7 @@ namespace WalkingTracker.Data
             : base(options)
         {
         }
+        public DbSet<WalkingTracker.Areas.Tracking.Models.TrackingLog> Tracking { get; set; }
+        public DbSet<WalkingTracker.Areas.Tracking.Models.Location> Location { get; set; }
     }
 }

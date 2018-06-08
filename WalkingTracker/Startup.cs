@@ -12,6 +12,9 @@ using Microsoft.EntityFrameworkCore;
 using WalkingTracker.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace WalkingTracker
 {
@@ -42,6 +45,20 @@ namespace WalkingTracker
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("LoggedIn", policy => policy.RequireClaim("UserName"));
+            });
+
+            services.AddMvc(o =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build();
+                o.Filters.Add(new AuthorizeFilter(policy));
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,6 +82,7 @@ namespace WalkingTracker
             app.UseAuthentication();
 
             app.UseMvc();
+
         }
     }
 }
