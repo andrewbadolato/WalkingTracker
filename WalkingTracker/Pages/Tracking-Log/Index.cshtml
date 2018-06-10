@@ -24,12 +24,12 @@
     <h2>Your Progress</h2>
     You are @newLocation.CheckpointProgress% of the way to @newLocation.EndLocation
     <div class="progress">
-        <div class="progress-bar progress-bar-success" role="progressbar" style="width: @newLocation.CheckpointProgress%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar bg-success" role="progressbar" style="width: @newLocation.CheckpointProgress%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
 
     You are @newLocation.TotalProgress% through your journey
     <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: @newLocation.TotalProgress%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar bg-warning" role="progressbar" style="width: @newLocation.TotalProgress%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
 
     <ul>
@@ -40,7 +40,11 @@
             Only <strong>@(newLocation.EndMiles - distTotal) of @newLocation.EndMiles</strong> miles to go before you reach <strong>@newLocation.EndLocation</strong>!
         </li>
     </ul>
-    <a asp-page="Create" class="btn special-color-dark">Add Your Progress</a>
+    <div class="btn-group btn-group-sm" role="toolbar">
+        <a asp-page="Create" class="btn btn-mdb-color">Add Your Progress</a>
+        <a asp-page="Log" class="btn btn-mdb-color">View Your Log</a>
+    </div>
+
 </div>
 <div class=" container-fluid">
     <div class="row">

@@ -9,7 +9,7 @@
 <h2>Travel Log</h2>
 <p>You have made @Model.TrackingLog.Count() entries in your log.</p>
 <p>
-    <a asp-page="Create" class="btn special-color-dark">Add Your Progress</a>
+    <a asp-page="Create" class="btn btn-mdb-color">Add Your Progress</a>
 </p>
 
 <table class="table">
@@ -36,9 +36,9 @@
                 </td>
                 <td>
                     <div class="btn-group btn-group-sm" role="toolbar">
-                        <a class="btn special-color text-white" asp-page="./Edit" asp-route-id="@item.ID">Edit</a>
-                        <a class="btn special-color text-white" asp-page="./Details" asp-route-id="@item.ID">Details</a>
-                        <a class="btn special-color text-white" asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                        <a class="btn btn-mdb-color" asp-page="./Edit" asp-route-id="@item.ID">Edit</a>
+                        <a class="btn btn-mdb-color" asp-page="./Details" asp-route-id="@item.ID">Details</a>
+                        <a class="btn btn-mdb-color" asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
                     </div>
                 </td>
             </tr>
