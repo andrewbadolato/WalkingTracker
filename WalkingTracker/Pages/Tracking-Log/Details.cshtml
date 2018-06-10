@@ -8,7 +8,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>TrackingLog</h4>
+    <h4>Tracking Log</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -26,6 +26,8 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.TrackingLog.ID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+    <div class="btn-group btn-group-sm" role="toolbar">
+        <a class="btn special-color text-white" asp-page="./Edit" asp-route-id="@Model.TrackingLog.ID">Edit</a>
+        <a class="btn special-color text-white" asp-page="./Index">Back to List</a>
+     </div>
+    </div>

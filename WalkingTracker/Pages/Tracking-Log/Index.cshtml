@@ -20,61 +20,46 @@
 
 }
 
+<div class="container-fluid">
+    <h2>Your Progress</h2>
+    You are @newLocation.CheckpointProgress% of the way to @newLocation.EndLocation
+    <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" style="width: @newLocation.CheckpointProgress%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
 
-<h2>Your Progress</h2>
-You are @newLocation.CheckpointProgress% of the way to @newLocation.EndLocation
-<div class="progress">
-    <div class="progress-bar progress-bar-success" role="progressbar" style="width: @newLocation.CheckpointProgress%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    You are @newLocation.TotalProgress% through your journey
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: @newLocation.TotalProgress%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+
+    <ul>
+        <li>
+            You have traveled <strong>@distTotal miles</strong>, placing you between <strong>@newLocation.StartLocation</strong> and <strong>@newLocation.EndLocation</strong>
+        </li>
+        <li>
+            Only <strong>@(newLocation.EndMiles - distTotal) of @newLocation.EndMiles</strong> miles to go before you reach <strong>@newLocation.EndLocation</strong>!
+        </li>
+    </ul>
+    <a asp-page="Create" class="btn special-color-dark">Add Your Progress</a>
 </div>
+<div class=" container-fluid">
+    <div class="row">
+        <div class="col">
+            <p>Here is some placeholder text: chart</p>
 
-You are @newLocation.TotalProgress% through your journey
-<div class="progress">
-    <div class="progress-bar progress-bar-warning" role="progressbar" style="width: @newLocation.TotalProgress%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+
+            <p>Here is some placeholder text: chart toggle settings</p>
+        </div>
+        <div class="col-md-2">
+            <p>Here is some more placeholder text: badges</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>Here is some placeholder text: chart</p>
+        </div>
+        <div class="col-md-2">
+            <p>Here is some more placeholder text: table settings</p>
+        </div>
+    </div>
 </div>
-
-<ul>
-    <li>
-        You have traveled <strong>@distTotal miles</strong>, placing you between <strong>@newLocation.StartLocation</strong> and <strong>@newLocation.EndLocation</strong>
-    </li>
-    <li>
-        Only <strong>@(newLocation.EndMiles - distTotal) of @newLocation.EndMiles</strong> miles to go before you reach <strong>@newLocation.EndLocation</strong>!
-    </li>
-</ul>
-
-<h2>Travel Log</h2>
-<p>You have made @Model.TrackingLog.Count() entries in your log.</p>
-<p>
-    <a asp-page="Create" class="btn btn-default">Add Your Progress</a>
-</p>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TrackingLog[0].Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TrackingLog[0].Distance)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.TrackingLog)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Distance)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>

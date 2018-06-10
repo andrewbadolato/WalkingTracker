@@ -1,0 +1,47 @@
+﻿@page
+@model WalkingTracker.Pages.Tracking_Log.LogModel
+@using WalkingTracker.Areas.Tracking.Models
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Travel Log</h2>
+<p>You have made @Model.TrackingLog.Count() entries in your log.</p>
+<p>
+    <a asp-page="Create" class="btn special-color-dark">Add Your Progress</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TrackingLog[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TrackingLog[0].Distance)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.TrackingLog)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Distance)
+                </td>
+                <td>
+                    <div class="btn-group btn-group-sm" role="toolbar">
+                        <a class="btn special-color text-white" asp-page="./Edit" asp-route-id="@item.ID">Edit</a>
+                        <a class="btn special-color text-white" asp-page="./Details" asp-route-id="@item.ID">Details</a>
+                        <a class="btn special-color text-white" asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

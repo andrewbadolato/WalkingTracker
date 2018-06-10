@@ -47,7 +47,7 @@ namespace WalkingTracker.Pages.Tracking_Log
             _context.Tracking.Add(TrackingLog);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Log");
         }
     }
 }
