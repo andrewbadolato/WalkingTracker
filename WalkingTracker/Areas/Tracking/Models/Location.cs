@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 namespace WalkingTracker.Areas.Tracking.Models
 {
     public class Location
+
+        //Original class for tracking distance for final project
+        //Replacing with tables storing this information/allowing different checkpoints and distances
     {
         public int ID { get; set; }
         public string StartLocation { get; set; }

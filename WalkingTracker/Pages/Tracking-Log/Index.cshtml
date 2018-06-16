@@ -21,49 +21,98 @@
 }
 
 <div class="container-fluid">
-    <h2>Your Progress</h2>
-    You are @newLocation.CheckpointProgress% of the way to @newLocation.EndLocation
-    <div class="progress">
-        <div class="progress-bar bg-success" role="progressbar" style="width: @newLocation.CheckpointProgress%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
-
-    You are @newLocation.TotalProgress% through your journey
-    <div class="progress">
-        <div class="progress-bar bg-warning" role="progressbar" style="width: @newLocation.TotalProgress%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
-
-    <ul>
-        <li>
-            You have traveled <strong>@distTotal miles</strong>, placing you between <strong>@newLocation.StartLocation</strong> and <strong>@newLocation.EndLocation</strong>
-        </li>
-        <li>
-            Only <strong>@(newLocation.EndMiles - distTotal) of @newLocation.EndMiles</strong> miles to go before you reach <strong>@newLocation.EndLocation</strong>!
-        </li>
-    </ul>
-    <div class="btn-group btn-group-sm" role="toolbar">
-        <a asp-page="Create" class="btn btn-mdb-color">Add Your Progress</a>
-        <a asp-page="Log" class="btn btn-mdb-color">View Your Log</a>
-    </div>
-
-</div>
-<div class=" container-fluid">
     <div class="row">
-        <div class="col">
-            <p>Here is some placeholder text: chart</p>
+        <h2>Your Progress</h2>
+    </div>
+    <div class="row justify-content-center mb-4">
+        <div class="col-10">
+            <div class="card">
+                <h3 class="card-header">Destination: [Variable placeholder]</h3>
+                <div class="card-body">
+                    You are @newLocation.CheckpointProgress% of the way to @newLocation.EndLocation
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: @newLocation.CheckpointProgress%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
 
+                    You are @newLocation.TotalProgress% through your journey
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: @newLocation.TotalProgress%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
 
-            <p>Here is some placeholder text: chart toggle settings</p>
-        </div>
-        <div class="col-md-2">
-            <p>Here is some more placeholder text: badges</p>
+                    <p>
+                        You have traveled <strong>@distTotal miles</strong>, placing you between <strong>@newLocation.StartLocation</strong> and <strong>@newLocation.EndLocation</strong><br />
+                        Only <strong>@(newLocation.EndMiles - distTotal) of @newLocation.EndMiles</strong> miles to go before you reach <strong>@newLocation.EndLocation</strong>!</>
+                </div>
+                <div class="row justify-content-center">
+                    <a asp-page="Create" class="btn btn-sm btn-outline-deep-orange">Add Your Progress</a>
+                    <a asp-page="Log" class="btn btn-sm btn-outline-deep-orange">View Your Log</a>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
+
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <div class="card h-100">
+                <h3 class="card-header">Top Stats</h3>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <dl class="row">
+                                <dt class="col-sm-6">Total Distance</dt>
+                                <dd class="col-sm-6">@distTotal miles</dd>
+
+                                <dt class="col-sm-6">Average Per Trip</dt>
+                                <dd class="col-sm-6">##.## miles</dd>
+
+                                <dt class="col-sm-6">Best Day</dt>
+                                <dd class="col-sm-6">##/##/####<br />##.## miles</dd>
+                            </dl>
+                        </div>
+                        <div class="col-1 border-left border-right">
+                        </div>
+                        <div class="col">
+                            <dl class="row">
+                                <dt class="col-sm-9">Milestones Reached</dt>
+                                <dd class="col-sm-3">##</dd>
+
+                                <dt class="col-sm-9">Milestones Remaining</dt>
+                                <dd class="col-sm-3">##</dd>
+
+                                <dt class="col-sm-8">Distance Remaining</dt>
+                                <dd class="col-sm-4">@(newLocation.allMiles - distTotal) miles</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <h3 class="card-header">Badges</h3>
+                <div class="col">
+                    <div class="row"></div>
+                    <p>Here is some more placeholder text: badges</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="row align-items-end">
+        <div class="col-md-8">
+            <h3>Placeholder Header</h3>
+        </div>
+        <div class="col-md-4">
+            <h3>Placeholder Header</h3>
+        </div>
+    </div>*@
+
+    <div class="row mb-4">
+        <div class="col-md-8">
             <p>Here is some placeholder text: chart</p>
         </div>
-        <div class="col-md-2">
-            <p>Here is some more placeholder text: table settings</p>
+        <div class="col-md-4">
+            <p>Here is some more placeholder text: chart settings</p>
         </div>
     </div>
 </div>
