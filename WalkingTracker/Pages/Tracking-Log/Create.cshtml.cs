@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using WalkingTracker.Areas.Tracking.Models;
-using WalkingTracker.Data;
+﻿using WalkingTracker.Areas.Tracking.Models;
 
 namespace WalkingTracker.Pages.Tracking_Log
 {
@@ -43,6 +34,10 @@ namespace WalkingTracker.Pages.Tracking_Log
             ClaimsPrincipal currentUser = this.User;
             var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
             TrackingLog.OwnerID = currentUserID;
+
+            //Add something similar to above to add current JourneyId to field
+            //Currently no need to retrieve records based on JourneyId - this
+            //is for future feature development (adding custom journeys)
 
             _context.Tracking.Add(TrackingLog);
             await _context.SaveChangesAsync();
